@@ -1,32 +1,20 @@
 import React, { useState } from "react";
 import './App.css';
-import { data } from "./data"
+import { data } from "./data";
+import BirthdayList from "./BirthdayList";
 
 function App() {
   const [people, setPeople] = useState(data)
 
-  const removeAll = () => {
+  const clearAll = () => {
     setPeople([])
   }
+
   return (
-    <div className="App">
-        <section className="container">
-          <h3>{ people.length} birthdays today</h3>
-          <article className="person">
-            {people.map((el) => {
-              return(
-              <> 
-                <img src={el.image} alt="tennis" />
-                <div key={el.id}>
-                  <h4>{el.name}</h4>
-                  <p>{el.age} years</p>
-                </div>
-              </>
-              )
-            })}
-          </article>
-          <button onClick={()=>removeAll()}>Clear All</button>
-        </section>
+    <div className="container">
+      <h3>{ people.length} birthdays today</h3>
+      <BirthdayList people={people} />
+      <button onClick={()=>clearAll()}>Clear All</button>
     </div>
   );
 }
