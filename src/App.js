@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import './App.css';
-import { people } from "./People"
+import { data } from "./data"
 
-function App() {  
+function App() {
+  const [people,setPeople]=useState(data)
   return (
     <div className="App">
       <main>
