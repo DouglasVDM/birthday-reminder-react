@@ -1,17 +1,25 @@
+import React, { useState } from "react";
 import './App.css';
+import { people } from "./People"
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <main>
         <section className="container">
-          <h3>5 birthdays today</h3>
+          <h3>{ people.length} birthdays today</h3>
           <article className="person">
-            <img src="" alt="" />
-            <div>
-              <h4>name and suname</h4>
-              <p>50 years</p>
-            </div>
+            {people.map((el) => {
+              return(
+              <> 
+                <img src={el.image} alt="tennis" />
+                <div key={el.id}>
+                  <h4>{el.name}</h4>
+                  <p>{el.age} years</p>
+                </div>
+              </>
+              )
+            })}
           </article>
         </section>
       </main>
